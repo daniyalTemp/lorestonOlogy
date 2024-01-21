@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,15 +12,42 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->string('document_id')->nullable(); //سرشناسه
+            $table->string('author')->nullable(); //عنوان و نام پدیدآور
+            $table->string('collection')->nullable(); //مجموعه
+            $table->string('replication_status')->nullable(); //وضعیت استنساخ
+            $table->string('Replication_specification_note')->nullable(); //یادداشت مشخصات استنساخ
+            $table->string('language')->nullable(); // زبان
+            $table->string('appearance_characteristics')->nullable(); //مشخصات ظاهری
+            $table->string('notes_appearance')->nullable(); //یادداشت مشخصات ظاهری
+            $table->string('start_finish_version')->nullable(); //آغاز وانجام نسخه
+            $table->string('general_note')->nullable(); //یادداشت کلی
+            $table->string('sources_work')->nullable(); //منابع اثر، نمایه ها، چکیده ها
+            $table->string('uncontrolled_subjects')->nullable(); //موضوع های کنترل نشده
+            $table->string('maintenance_center')->nullable(); //مرکز نگهدارنده
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('version_recovery_number')->nullable();//شماره بازیابی نسخه
+            $table->string('note')->nullable(); //یادداشت
+            $table->text('other')->nullable(); //اطلاعات اضافی
+            $table->string('image')->nullable();
+            $table->timestamps();
+
+
+
+
+
+
+
+
 //            $table->string('document_number')->nullable();
-//            $table->string('document_id')->nullable();
+
 //            $table->string('source')->nullable();
 //            $table->string('date')->nullable();
 //            $table->string('another_title')->nullable();
 //            $table->string('inflectional_title')->nullable();
 //            $table->string('name')->nullable();
 //            $table->string('creator')->nullable();
-//            $table->string('collection')->nullable();
 //            $table->string('replication')->nullable();
 //            $table->string('Replication_specification_note')->nullable();
 //            $table->string('language')->nullable();
@@ -53,7 +79,6 @@ return new class extends Migration
 //
 //            $table->unsignedBigInteger('editedBy')->nullable();
 //            $table->foreign('editedBy')->references('id')->on('users')->onUpdate('null')->onDelete('null');
-            $table->timestamps();
         });
     }
 
