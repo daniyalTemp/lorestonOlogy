@@ -27,6 +27,7 @@ class contactController extends Controller
     public function edit(Request $request, int $id)
     {
         $contact = contacts::find($id);
+//        dd($contact->Documents()->get());
         return view('back.contact.form', compact('contact'));
 
     }
@@ -37,15 +38,13 @@ class contactController extends Controller
 
 
         $valRules = [
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'email' => 'email',
-            'image' => 'image',
+            'Name' => 'required',
+//            'email' => 'email',
+//            'image' => 'image',
 
         ];
         $valMassage = [
-            'firstName.required' => 'ورود نام الزامیست',
-            'lastName.required' => 'ورود نام الزامیست',
+            'Name.required' => 'ورود نام الزامیست',
             'email.email' => 'ایمیل وارد شده معتبر نیست',
             'image.image' => 'عکس ارسالی معتبر نیست',
         ];
@@ -60,8 +59,9 @@ class contactController extends Controller
 //        }
         if ($id == -1) {
             $contact = contacts::create([
-                'firstName' => $request->firstName,
-                'lastName' => $request->lastName,
+                'Name' => $request->Name,
+                'bornIN' => $request->bornIN,
+
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address,
@@ -69,23 +69,24 @@ class contactController extends Controller
                 'sex' => $request->sex,
                 'type' => $request->type,
                 'other' => $request->other,
-                'birthday' => $request->birthday,
+                'birthday' => $request->birthday ? $request->birthday : null,
                 'image' => $request->image ? $request->image : '',
                 'congrats' => $request->has('congrats') ? true : false,
             ]);
         } else {
             $contact = contacts::find($id);
-            $contact->firstName = $request->firstName;
-            $contact->lastName = $request->lastName;
+            $contact->Name = $request->Name;
+//            $contact->lastName = $request->lastName;
             $contact->email = $request->email;
             $contact->image = $request->image ? $request->image : $contact->image;
             $contact->phone = $request->phone;
+            $contact->bornIN = $request->bornIN;
             $contact->address = $request->address;
             $contact->type = $request->type;
             $contact->sex = $request->sex;
             $contact->interests = $request->interests;
             $contact->other = $request->other;
-            $contact->birthday = $request->birthday;
+            $contact->birthday = $request->birthday ? $request->birthday : null;
             $contact->congrats = $request->has('congrats') ? true : false;
             $contact->save();
         }
@@ -106,6 +107,13 @@ class contactController extends Controller
 
     }
 
+
+    public function showProfile(Request $request, int $id)
+    {
+        $contact = contacts::find($id);
+//        dd($contact->Educations()->get());
+        return view('back.contact.profile', compact('contact'));
+    }
 
     public function addEducation(Request $request, int $idUser)
     {
@@ -246,7 +254,7 @@ class contactController extends Controller
                 //import exel
                 $request->file('exelFile')->move(storage_path('app/public/exelFiles/'), $request->file('exelFile')->getClientOriginalName());
 
-                Excel::import(new ImortContacts,storage_path('app/public/exelFiles/'. $request->file('exelFile')->getClientOriginalName()));
+                Excel::import(new ImortContacts, storage_path('app/public/exelFiles/' . $request->file('exelFile')->getClientOriginalName()));
             }
         }
         return redirect()->route('dashboard.contact.list');

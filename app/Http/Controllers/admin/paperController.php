@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\ImortContacts;
+use App\Imports\PaperImport;
 use App\Models\contacts;
 use App\Models\paper;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class paperController extends Controller
 {
@@ -121,5 +124,19 @@ class paperController extends Controller
             $paper->Contacts()->attach([$userid]);
         }
         return redirect()->route('dashboard.paper.edit', $id);
+    }
+
+    public function import(Request $request)
+    {
+        if ($request->files->count() > 0) {
+            if ($request->file('exelFile')->getClientOriginalExtension() == 'xlsx') {
+                //import exel
+                $request->file('exelFile')->move(storage_path('app/public/exelFiles/'), $request->file('exelFile')->getClientOriginalName());
+
+                Excel::import(new PaperImport,storage_path('app/public/exelFiles/'. $request->file('exelFile')->getClientOriginalName()));
+            }
+        }
+        return redirect()->route('dashboard.paper.list');
+
     }
 }

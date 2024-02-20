@@ -6,7 +6,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"> تحصیلات {{$contact->firstName.' '.$contact->lastName}}</h4>
+                    <h4 class="card-title"> تحصیلات {{$contact->Name}}</h4>
                 </div>
                 <div class="card">
 

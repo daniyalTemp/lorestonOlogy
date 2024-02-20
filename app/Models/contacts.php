@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Casts\contacttypeCast;
+use App\Casts\sexCast;
 use App\Casts\shamsiCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,8 +14,8 @@ class contacts extends Model
 
     protected $table = 'contacts';
     protected $fillable = [
-        'firstName',
-        'lastName',
+        'Name',
+        'bornIN',
         'email',
         'phone',
         'address',
@@ -26,10 +28,6 @@ class contacts extends Model
         'other',
     ];
 
-    public function fullName()
-    {
-        return $this->attributes['firstName'] . ' ' . $this->attributes['lastName'];
-    }
 
     public function Educations()
     {
@@ -50,7 +48,14 @@ class contacts extends Model
         return $this->belongsToMany(book::class, 'book_contact' , 'contact_id' , 'book_id');
 
     }
+    public function Documents()
+    {
+        return $this->belongsToMany(documents::class, 'document_contacts' , 'contact_id' , 'document_id');
+
+    }
     protected $casts = [
         'birthday' => shamsiCast::class,
+        'type'=>contacttypeCast::class,
+        'sex'=>sexCast::class,
     ];
 }

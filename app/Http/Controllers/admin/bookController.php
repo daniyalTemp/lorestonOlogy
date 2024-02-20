@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\BookImport;
 use App\Models\book;
 use App\Models\contacts;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class bookController extends Controller
 {
@@ -137,5 +139,19 @@ class bookController extends Controller
             $book->Contacts()->attach([$userid]);
         }
         return redirect()->route('dashboard.book.edit', $id);
+    }
+
+    public function import(Request $request)
+    {
+        if ($request->files->count() > 0) {
+            if ($request->file('exelFile')->getClientOriginalExtension() == 'xlsx') {
+                //import exel
+                $request->file('exelFile')->move(storage_path('app/public/exelFiles/'), $request->file('exelFile')->getClientOriginalName());
+
+                Excel::import(new BookImport,storage_path('app/public/exelFiles/'. $request->file('exelFile')->getClientOriginalName()));
+            }
+        }
+        return redirect()->route('dashboard.book.list');
+
     }
 }

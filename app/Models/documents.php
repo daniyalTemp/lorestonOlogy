@@ -11,50 +11,33 @@ class documents extends Model
 
     protected $table = 'documents';
     protected $fillable = [
-//        'document_number',
-//        'document_id',
-//        'another_title',
-//        'inflectional_title',
-//        'name',
-//        'creator',
-//        'collection',
-//        'source',
-        'date',
-//        'replication',
-//        'Replication_specification_note',
-//        'language',
-        'appearance_characteristics',
-        'notes_appearance',
-        'general_note',
-        'sources_work',
-        'uncontrolled_subjects',
-        'maintenance_center',
+
+        'document_id', //سرشناسه
+        'author', //عنوان و نام پدیدآور
+        'collection', //مجموعه
+        'replication_status', //وضعیت استنساخ
+        'Replication_specification_note', //یادداشت مشخصات استنساخ **
+        'language', // زبان
+        'appearance_characteristics', //مشخصات ظاهری
+        'notes_appearance', //یادداشت مشخصات ظاهری **
+        'start_finish_version', //آغاز وانجام نسخه
+        'general_note', //یادداشت کلی **
+        'sources_work', //منابع اثر، نمایه ها، چکیده ها
+        'uncontrolled_subjects', //موضوع های کنترل نشده
+        'maintenance_center', //مرکز نگهدارنده
         'country',
         'city',
-        'version_recovery_number',
-        'note',
-        'start_finish_version',
-        'introducing_version',
-        'scope_content',
-        'descriptor',
-        'publication',
-        'frost',
-        'ISBN',
-        'contents',
-        'subject',
-        'added_ID',
-        'congress_classification',
-        'dewey_classification',
-        'national_bibliography_number',
-        'status_editor',
+        'version_recovery_number',//شماره بازیابی نسخه
+        'note', //یادداشت **
+        'other', //اطلاعات اضافی**
         'image',
-        'editedBy',
-        ];
 
-    public function editor()
+    ];
+    public function Contacts()
     {
-        return $this->belongsTo(User::class  ,'editedBy');
+        return $this->belongsToMany(contacts::class, 'document_contacts' , 'document_id', 'contact_id' );
     }
+
 
 
 }

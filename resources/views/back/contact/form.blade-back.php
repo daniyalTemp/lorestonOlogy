@@ -19,31 +19,19 @@
                                 {{csrf_field()}}
                                 <div class="col-xl-12">
                                     <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label text-center" for="firstName">نام
+                                        <label class="col-lg-4 col-form-label text-center" for="firstName">   نام و نام خانوادگی
                                             <span class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="firstName" name="firstName"
-                                                   value="{{(isset($contact)?$contact->firstName : (old('firstName') ? old('firstName') : ''))}}"
-                                                   placeholder=" نام ">
+                                            <input type="text" class="form-control" id="Name" name="Name"
+                                                   value="{{(isset($contact)?$contact->Name : (old('Name') ? old('Name') : ''))}}"
+                                                   placeholder="   نام و نام خانوادگی ">
                                         </div>
                                     </div>
 
                                 </div>
 
 
-                                <div class="col-xl-12">
-                                    <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label text-center" for="lastName">نام خانوادگی
-                                            <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="lastName" name="lastName"
-                                                   value="{{(isset($contact)?$contact->lastName : (old('lastName') ? old('lastName') : ''))}}"
-
-                                                   placeholder=" نام خانوادگی">
-                                        </div>
-                                    </div>
 
                                 </div>
 

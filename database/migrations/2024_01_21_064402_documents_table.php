@@ -12,23 +12,23 @@ return new class extends Migration {
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->string('document_id')->nullable(); //سرشناسه
-            $table->string('author')->nullable(); //عنوان و نام پدیدآور
-            $table->string('collection')->nullable(); //مجموعه
-            $table->string('replication_status')->nullable(); //وضعیت استنساخ
-            $table->string('Replication_specification_note')->nullable(); //یادداشت مشخصات استنساخ
-            $table->string('language')->nullable(); // زبان
-            $table->string('appearance_characteristics')->nullable(); //مشخصات ظاهری
-            $table->string('notes_appearance')->nullable(); //یادداشت مشخصات ظاهری
-            $table->string('start_finish_version')->nullable(); //آغاز وانجام نسخه
-            $table->string('general_note')->nullable(); //یادداشت کلی
-            $table->string('sources_work')->nullable(); //منابع اثر، نمایه ها، چکیده ها
-            $table->string('uncontrolled_subjects')->nullable(); //موضوع های کنترل نشده
-            $table->string('maintenance_center')->nullable(); //مرکز نگهدارنده
+            $table->text('document_id')->nullable(); //سرشناسه
+            $table->text('author')->nullable(); //عنوان و نام پدیدآور
+            $table->text('collection')->nullable(); //مجموعه
+            $table->text('replication_status')->nullable(); //وضعیت استنساخ
+            $table->text('Replication_specification_note')->nullable(); //یادداشت مشخصات استنساخ
+            $table->text('language')->nullable(); // زبان
+            $table->text('appearance_characteristics')->nullable(); //مشخصات ظاهری
+            $table->text('notes_appearance')->nullable(); //یادداشت مشخصات ظاهری
+            $table->text('start_finish_version')->nullable(); //آغاز وانجام نسخه
+            $table->text('general_note')->nullable(); //یادداشت کلی
+            $table->text('sources_work')->nullable(); //منابع اثر، نمایه ها، چکیده ها
+            $table->text('uncontrolled_subjects')->nullable(); //موضوع های کنترل نشده
+            $table->text('maintenance_center')->nullable(); //مرکز نگهدارنده
             $table->string('country')->nullable();
             $table->string('city')->nullable();
-            $table->string('version_recovery_number')->nullable();//شماره بازیابی نسخه
-            $table->string('note')->nullable(); //یادداشت
+            $table->text('version_recovery_number')->nullable();//شماره بازیابی نسخه
+            $table->text('note')->nullable(); //یادداشت
             $table->text('other')->nullable(); //اطلاعات اضافی
             $table->string('image')->nullable();
             $table->timestamps();

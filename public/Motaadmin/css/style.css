@@ -5,7 +5,7 @@
     Author               : jafarabbasi and Tn_Plugin
     Author Portfolio     : https://www.rtl-theme.com/mota-html-template/
 	Version				 : 1.3.1
-    
+
 
 
     Table of Sass Contents
@@ -17,7 +17,7 @@
         _mixin
         _variable
 
-    2. bootstrap 
+    2. bootstrap
         -Here goes all official bootstrap scss files
 
     3. Global/Base
@@ -285,7 +285,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     src: url('fonts/iransans/eot/IRANSansWeb_Black.eot');
     src: url('fonts/iransans/eot/IRANSansWeb_Black.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
     url('fonts/iransans/woff2/IRANSansWeb_Black.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-	
+
 	url('fonts/iransans/woff/IRANSansWeb_Black.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
     url('fonts/iransans/ttf/IRANSansWeb_Black.ttf') format('truetype');
 }
@@ -532,7 +532,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     src: url('fonts/dana/eot/dana-medium.eot');
     src: url('fonts/dana/eot/dana-medium.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
     url('fonts/dana/woff2/dana-medium.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-	
+
 	url('fonts/dana/woff/dana-medium.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
 @font-face {
@@ -620,7 +620,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     font-family: dana;
     font-style: italic;
     font-weight: 500;
-	
+
 	src: url('fonts/dana/eot/dana-mediumitalic.eot');
     src: url('fonts/dana/eot/dana-mediumitalic.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
     url('fonts/dana/woff2/dana-mediumitalic.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
@@ -701,7 +701,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 @font-face {
     font-family: anjoman;
     font-style: normal;
-	
+
 	font-weight: bold;
     src: url('fonts/anjoman/eot/Anjoman-Bold.eot?#') format('eot'),  /* IE6â€“8 */
     url('fonts/anjoman/woff/Anjoman-Bold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
@@ -9181,7 +9181,7 @@ body {
   overflow-x: hidden;
   height: 100%;
   position: relative;
-  max-width: 100%; 
+  max-width: 100%;
   font-family: IRANSansfanum;
 }
 

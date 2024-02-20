@@ -61,7 +61,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-dark light" data-dismiss="modal">بستن</button>
-                                                                <a href="{{route('dashboard.contact.del' , $book->id)}}" class="btn btn-danger">حذف</a>
+                                                                <a href="{{route('dashboard.book.del' , $book->id)}}" class="btn btn-danger">حذف</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -83,6 +83,48 @@
                                     </span>افزودن
                             </a>
 
+                        </div>
+
+
+                        <div class="card-body col-8 pull-right">
+                            <form class="form-valide"
+                                  action="{{route('dashboard.book.import')}}"
+                                  enctype="multipart/form-data" method="post">
+                                <div class="row ">
+
+                                    @include('error')
+                                    {{csrf_field()}}
+
+
+                                    <div class="col-xl-8">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label text-center"
+                                                   for="exelFile">فایل اکسل
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input"
+                                                           name="exelFile">
+                                                    <label class="custom-file-label">انتخاب
+                                                        فایل</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <br>
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-rounded btn-block btn-success"><span
+                                                class="btn-icon-left text-info"><i class="fa fa-upload color-info"></i>
+                                    </span>آپلود
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

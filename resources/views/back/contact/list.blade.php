@@ -16,8 +16,7 @@
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>نام</th>
-                                <th>نام خانودگی</th>
+                                <th> نام  و نام خانودگی</th>
                                 <th>تلفن</th>
                                 <th>ایمیل</th>
                                 <th>محل سکونت</th>
@@ -31,14 +30,15 @@
                                     <tr>
                                         <td><img class="rounded-circle" width="35"
                                                  src="{{asset('storage/images/contacts/'.$contact->image)}}" alt=""></td>
-                                        <td>{{$contact->firstName}}</td>
-                                        <td>{{$contact->lastName}}</td>
+                                        <td>{{$contact->Name}}</td>
                                         <td><a href="javascript:void(0);"><strong>{{$contact->phone}}</strong></a></td>
                                         <td><a href="javascript:void(0);"><strong>{{$contact->email}}</strong></a></td>
                                         <td><a href="javascript:void(0);"><strong>{{$contact->address}}</strong></a></td>
                                         <td><a href="javascript:void(0);"><strong>{{$contact->birthday}}</strong></a></td>
                                         <td>
                                             <div class="d-flex">
+                                                <a href="{{route('dashboard.contact.showProfile' , $contact->id)}}" class="btn btn-dark shadow btn-xs sharp mr-1"><i
+                                                        class="fa fa-user-circle"></i></a>
                                                 <a href="{{route('dashboard.contact.edit' , $contact->id)}}" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                         class="fa fa-pencil"></i></a>
                                                 <a href="{{route('dashboard.contact.del' , $contact->id)}}" class="btn btn-danger shadow btn-xs sharp"   data-toggle="modal" data-target="#delete{{$contact->id}}" ><i
