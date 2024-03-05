@@ -25,6 +25,10 @@
                                 <a class="nav-link" data-toggle="tab" href="#message"><i class="la la-tasks mr-2"></i>
                                     فعالیت ها</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#roles"><i class="la la-users mr-2"></i>
+                                    نقش ها</a>
+                            </li>
                         </ul>
                         <div class="tab-content">
 
@@ -45,7 +49,7 @@
                                                             <div class="col-xl-6">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-4 col-form-label text-center"
-                                                                           for="firstName">نام و  نام خانوادگی
+                                                                           for="firstName">نام و نام خانوادگی
                                                                         <span class="text-danger">*</span>
                                                                     </label>
                                                                     <div class="col-lg-6">
@@ -57,9 +61,6 @@
                                                                 </div>
 
                                                             </div>
-
-
-
 
 
                                                             <div class="col-xl-6">
@@ -145,8 +146,6 @@
                                                                 </div>
 
                                                             </div>
-
-
 
 
                                                             <div class="col-xl-6">
@@ -923,25 +922,27 @@
                                                                     @foreach($contact->Documents()->get() as $document)
                                                                         <li>
                                                                             <a href="{{route('dashboard.document.edit' , $document->id)}}">
-                                                                            <div class="timeline-panel">
-                                                                                <div class="media mr-2 media-primary">
-                                                                                    <i class="fa fa-link"></i>
+                                                                                <div class="timeline-panel">
+                                                                                    <div
+                                                                                        class="media mr-2 media-primary">
+                                                                                        <i class="fa fa-link"></i>
+                                                                                    </div>
+                                                                                    <div class="media-body">
+                                                                                        <h5 class="mb-0">{{$document->document_id}}
+                                                                                            -- {{ $document->author }}</h5>
+                                                                                        <small class="text-muted">
+                                                                                            {{$document->collection}}
+                                                                                            --
+                                                                                            {{$document->language}}
+                                                                                        </small>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="media-body">
-                                                                                    <h5 class="mb-0">{{$document->document_id}}
-                                                                                        -- {{ $document->author }}</h5>
-                                                                                    <small class="text-muted">
-                                                                                    {{$document->collection}}
-                                                                                        --
-                                                                                        {{$document->language}}
-                                                                                    </small>
-                                                                                </div>
-                                                                            </div>
                                                                             </a>
                                                                         </li>
                                                                         <a data-toggle="modal"
                                                                            data-target="#detachDocument{{$document->id}}"
-                                                                           class="btn btn-outline-danger  btn-block btn-xxs">حذف</a>                                                                        <!-- Modal -->
+                                                                           class="btn btn-outline-danger  btn-block btn-xxs">حذف</a>
+                                                                        <!-- Modal -->
                                                                         <div class="modal fade"
                                                                              id="detachDocument{{$document->id}}">
                                                                             <div
@@ -995,6 +996,159 @@
                                                             </button>
                                                         </div>
 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="pt-4">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header border-0 pb-0">
+                                                        <h4 class="card-title"></h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div
+                                                            class="alert  solid alert-dismissible fade show col-xl-12 text-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                 height="24px" viewBox="0 0 24 24" version="1.1"
+                                                                 class="svg-main-icon">
+                                                                <g stroke="none" stroke-width="1" fill="none"
+                                                                   fill-rule="evenodd">
+                                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                                    <path
+                                                                        d="M12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 Z M12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 Z M19.0710678,4.92893219 L19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 L4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 Z"
+                                                                        fill="#000000" fill-rule="nonzero"
+                                                                        opacity="0.3"/>
+                                                                </g>
+                                                            </svg>
+
+                                                            ابتدا کاربر را ایجاد کنید
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                @endif
+                            </div>
+                            <div class="tab-pane fade" id="roles">
+                                @if(isset($contact))
+
+                                    <div class="pt-4 ">
+                                        <h4>نقش ها </h4>
+                                        <div class="row">
+
+                                            <div class="col-xl-6 col-lg-6">
+                                                <div class="card border-0 pb-0">
+                                                    <div class="card-header border-0 pb-0">
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="DZ_W_Todo3" class="widget-media dz-scroll"
+                                                             style="height:370px;">
+                                                            <ul class="timeline">
+
+                                                                @if(isset($contact)&& count($contact->Types()->get())>0)
+                                                                    @foreach($contact->Types()->get() as $type)
+                                                                        <li>
+                                                                            <div class="timeline-panel">
+
+                                                                                <div class="media-body">
+                                                                                    <h5 class="mb-1">{{$type->name}}
+
+                                                                                    </h5>
+
+                                                                                </div>
+                                                                                <div class="col-4">
+                                                                                    <a href="{{route('dashboard.contact.type.detach' ,[ $type->id , $contact->id])}}"
+                                                                                       class="btn btn-outline-danger  btn-block btn-xxs">حذف</a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+
+
+
+
+
+                                                                    {{--                                                                <button type="button"--}}
+                                                                    {{--                                                                        class="btn btn-rounded btn-info"><span--}}
+                                                                    {{--                                                                        class="btn-icon-left text-info"><i--}}
+                                                                    {{--                                                                            class="fa fa-plus color-info"></i>--}}
+                                                                    {{--                                    </span>افزودن--}}
+                                                                    {{--                                                                </button>--}}
+
+                                                                @endif
+
+
+                                                            </ul>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-xl-6 col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">افزودن</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table id="example5" class="display"
+                                                                   style="min-width: 400px">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>نام</th>
+                                                                    <th>عملیات</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                @if(isset($allTypes))
+                                                                    @foreach($allTypes as $allType)
+                                                                        <tr>
+
+
+                                                                            <td>{{$allType->name}}</td>
+                                                                            <td>
+                                                                                <div class="d-flex">
+                                                                                    <a type="button"
+                                                                                       href="{{route('dashboard.contact.type.attach',[$allType->id , $contact->id])}}"
+                                                                                       style="color: aliceblue"
+                                                                                       class="btn btn-rounded btn-sm btn-success"><span
+                                                                                            class="btn-icon-left text-success"><i
+                                                                                                class="fa fa-user-plus color-success"></i>
+                                    </span>افزودن</a></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                @endif
+
+
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <a type="button"
+                                                               href="{{route('dashboard.contact.listTypes')}}"
+                                                               style="color: aliceblue"
+                                                               class="btn btn-rounded btn-block btn-sm btn-success"><span
+                                                                    class="btn-icon-left text-success"><i
+                                                                        class="fa fa-users color-success"></i>
+                                    </span>مدیریت نقش ها</a></div>
                                                     </div>
                                                 </div>
                                             </div>

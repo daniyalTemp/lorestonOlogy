@@ -7,6 +7,7 @@ use App\Imports\ImortContacts;
 use App\Models\contacts;
 use App\Models\education;
 use App\Models\job;
+use App\Models\userTypes;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -27,8 +28,10 @@ class contactController extends Controller
     public function edit(Request $request, int $id)
     {
         $contact = contacts::find($id);
+//        dd($contact->Types()->get());
+        $allTypes = userTypes::all();
 //        dd($contact->Documents()->get());
-        return view('back.contact.form', compact('contact'));
+        return view('back.contact.form', compact('contact' , 'allTypes'));
 
     }
 
@@ -260,6 +263,7 @@ class contactController extends Controller
         return redirect()->route('dashboard.contact.list');
 
     }
+
 
 
 }

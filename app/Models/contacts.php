@@ -53,6 +53,15 @@ class contacts extends Model
         return $this->belongsToMany(documents::class, 'document_contacts' , 'contact_id' , 'document_id');
 
     }
+
+    public function Types()
+    {
+        return $this->belongsToMany(userTypes::class , 'user_types_pivot' , 'user_id','type_id' );
+    }
+
+    public function fullName(){
+        return $this->attributes['Name'];
+    }
     protected $casts = [
         'birthday' => shamsiCast::class,
         'type'=>contacttypeCast::class,

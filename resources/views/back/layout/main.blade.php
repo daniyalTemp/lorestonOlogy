@@ -183,6 +183,7 @@ Preloader start
                             <ul aria-expanded="false">
                                 <li><a href="{{route('dashboard.contact.add')}}">افزودن</a></li>
                                 <li><a href="{{route('dashboard.contact.list')}}">لیست</a></li>
+                                <li><a href="{{route('dashboard.contact.listTypes')}}"> مدیریت نوع </a></li>
                             </ul>
                         </li>
                     </ul>

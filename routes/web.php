@@ -46,6 +46,17 @@ Route::prefix('panel')->middleware('auth')->namespace('App\Http\Controllers\admi
         Route::post('/addSave/{id}', 'contactController@addSave')->name('dashboard.contact.addSave');
         Route::post('/import', 'contactController@import')->name('dashboard.contact.import');
 
+        Route::prefix('types')->group(function () {
+            Route::get('/', 'contactTypeConteoller@list')->name('dashboard.contact.listTypes');
+            Route::get('/add', 'contactTypeConteoller@add')->name('dashboard.contact.addTypes');
+            Route::get('/edit/{id}', 'contactTypeConteoller@edit')->name('dashboard.contact.editTypes');
+            Route::get('/delete/{id}', 'contactTypeConteoller@delete')->name('dashboard.contact.delTypes');
+            Route::post('/addSave/{id}', 'contactTypeConteoller@addSave')->name('dashboard.contact.addSaveTypes');
+            Route::get('/detach/{id}/from/{userId}', 'contactTypeConteoller@detach')->name('dashboard.contact.type.detach');
+            Route::get('/attach/{id}/to/{userId}', 'contactTypeConteoller@attach')->name('dashboard.contact.type.attach');
+        });
+
+
         Route::prefix('education')->group(function () {
             Route::get('/add/{idUser}', 'contactController@addEducation')->name('dashboard.contact.addEducation');
             Route::get('/edit/{id}', 'contactController@editEducation')->name('dashboard.contact.editEducation');
