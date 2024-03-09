@@ -56,7 +56,7 @@ class contactTypeConteoller extends Controller
 
         if ($id == -1) {
             userTypes::create([
-                'name' => $request->Name,
+                'name' => $request->name,
 
             ]);
             return redirect()->route('dashboard.contact.listTypes');

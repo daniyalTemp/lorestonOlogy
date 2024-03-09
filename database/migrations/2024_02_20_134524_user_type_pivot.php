@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('user_types_Pivot', function (Blueprint $table) {
+        Schema::create('user_types_pivot', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('user_types')->onUpdate('cascade')->onDelete('cascade');
@@ -25,7 +25,7 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_types_Pivot');
+        Schema::dropIfExists('user_types_pivot');
 
     }
 };

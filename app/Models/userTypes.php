@@ -13,6 +13,6 @@ class userTypes extends Model
         'name'
     ];
     public function  contacts(){
-        return $this->belongsToMany(contacts::class , 'user_types_Pivot' ,   'type_id','user_id');
+        return $this->belongsToMany(contacts::class , 'user_types_pivot' ,   'type_id','user_id');
     }
 }

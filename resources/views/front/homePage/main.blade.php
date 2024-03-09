@@ -18,11 +18,15 @@
     <div class="container h-100">
         <div class="row justify-content-center h-100 align-items-center">
             <div class="col-md-6">
-                <div class="authincation-content">
+                <div class="authincation-content text-center">
                     <div class="row no-gutters">
                         <div class="col-xl-12">
                             <div class="auth-form">
-                                <h4 class="text-center mb-4">وارد حساب خود شوید</h4>
+                                <h4 class="text-center mb-4">ورود</h4>
+                                <div class="text-center" style="  background-color: #345c7082;   border-radius: 100px;">
+                                    <img width="200px" class="logo-compact pt-2" src="{{asset('images/logo-text.png')}}" alt="">
+
+                                </div>
 
                                 @include('error')
                                 <form action="{{route('doLogin')}}" method="post" >
@@ -35,17 +39,7 @@
                                         <label class="mb-1"><strong>رمز عبور</strong></label>
                                         <input type="password" name="password" class="form-control" value="رمز عبور">
                                     </div>
-                                    <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox ml-1">
-                                                <input type="checkbox" class="custom-control-input"  name="remember" id="remember">
-                                                <label class="custom-control-label" for="remember">مرا به خاطر بسپار</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <a href="page-forgot-password.html">فراموشی رمز عبور؟</a>
-                                        </div>
-                                    </div>
+
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-block">وارد شوید</button>
                                     </div>
